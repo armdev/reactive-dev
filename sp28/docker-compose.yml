@@ -1,0 +1,46 @@
+version: '3'
+services: 
+  mongo:
+    image: mongo
+    build: ./mongo
+    hostname: 127.0.0.1
+    dns_search: .
+    container_name: mongo   
+    volumes:
+      - /opt/mongo/data/db:/data/db
+      - /opt/mongo/logs:/data/logs
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/data/logs   
+    command: mongod          
+    networks:
+      - rmnet              
+  
+  sp28:
+    image: sp28
+    build: ./sp28
+    container_name: sp28
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+    links:
+      - mongo
+   
+    depends_on:      
+      - mongo        
+    ports:
+      - '10007:10007'
+    volumes:
+      - /opt/sp28/logs/:/opt/sp28/logs
+    networks:
+      - rmnet
+  
+networks:
+  rmnet:
+    driver: rmnet
+
