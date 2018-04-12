@@ -26,6 +26,11 @@ public class City implements Serializable{
     private String id;
     private String name;
     private Integer population;
+
+    public City(String name, Integer population) {
+        this.name = name;
+        this.population = population;        
+    }
     
     
 }

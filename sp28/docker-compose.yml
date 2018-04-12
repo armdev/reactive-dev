@@ -6,14 +6,14 @@ services:
     hostname: 127.0.0.1
     dns_search: .
     container_name: mongo   
-    volumes:
-      - /opt/mongo/data/db:/data/db
-      - /opt/mongo/logs:/data/logs
+    #volumes:
+    #  - /opt/mongo/data/db:/data/db
+   #   - /opt/mongo/logs:/data/logs
     ports:
       - 27017:27017
-    environment:
-      - MONGO_DATA_DIR=/data/db
-      - MONGO_LOG_DIR=/data/logs   
+   # environment:
+   #   - MONGO_DATA_DIR=/data/db
+   #   - MONGO_LOG_DIR=/data/logs   
     command: mongod          
     networks:
       - rmnet              
@@ -42,5 +42,5 @@ services:
   
 networks:
   rmnet:
-    driver: rmnet
+    driver: overlay
 
