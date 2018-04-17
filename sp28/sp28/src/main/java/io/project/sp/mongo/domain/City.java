@@ -11,6 +11,9 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.TextIndexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  *
@@ -21,9 +24,15 @@ import lombok.ToString;
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
+@Document(collection = "city")
 public class City implements Serializable{
+
+    private static final long serialVersionUID = 5803757207294029907L;
     
+    @Id
     private String id;
+    
+    @TextIndexed
     private String name;
     private Integer population;
 
