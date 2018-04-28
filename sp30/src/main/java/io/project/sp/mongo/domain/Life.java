@@ -19,18 +19,17 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-@Document(collection = "live")
-public class Live implements Serializable{
+@Document(collection = "life")
+public class Life implements Serializable {
 
     private static final long serialVersionUID = 5803757207294029907L;
-    
+
     @Id
     private String id;
-    
+
     @TextIndexed
     private String name;
-    
+
     private String details;
-   
-    
+
 }

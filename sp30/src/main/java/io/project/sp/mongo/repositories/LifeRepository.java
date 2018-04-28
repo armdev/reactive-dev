@@ -1,6 +1,6 @@
 package io.project.sp.mongo.repositories;
 
-import io.project.sp.mongo.domain.Live;
+import io.project.sp.mongo.domain.Life;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
@@ -11,9 +11,9 @@ import reactor.core.publisher.Flux;
  */
 
 @Component
-public interface LiveRepository extends ReactiveMongoRepository<Live, String>{
+public interface LifeRepository extends ReactiveMongoRepository<Life, String>{
     
-     Flux<Live> findByName(String name);
-     boolean deleteByName(String name);
+     Flux<Life> findByName(String name);
+  
    
 }

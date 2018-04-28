@@ -6,6 +6,7 @@
 package io.project.sp;
 
 import io.project.sp.mongo.domain.City;
+import io.project.sp.mongo.domain.Life;
 import io.project.sp.mongo.repositories.CityRepository;
 import java.time.Duration;
 import java.util.Arrays;
@@ -13,6 +14,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import io.project.sp.mongo.repositories.LifeRepository;
 
 /**
  *
@@ -24,6 +26,9 @@ public class CityCommandLineRunner implements CommandLineRunner {
     @Autowired
     private CityRepository cityRepository;
 
+    @Autowired
+    private LifeRepository liveRepository;
+
     @Override
     public void run(String... args) throws Exception {
         List<City> citiesList = Arrays.asList(
@@ -32,6 +37,12 @@ public class CityCommandLineRunner implements CommandLineRunner {
                 new City("Chicago", 2722389),
                 new City("Yerevan", 1000000)
         );
+
+        List<Life> liveList = Arrays.asList(new Life(null, "cool", "cooldetails"),
+                new Life(null, "red", "redwhite")
+        );
+
+        this.liveRepository.insert(liveList).blockLast(Duration.ofSeconds(3));
 
         this.cityRepository.insert(citiesList).blockLast(Duration.ofSeconds(3));
     }
