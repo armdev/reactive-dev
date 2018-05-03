@@ -14,7 +14,7 @@ eureka:
     prefer-ip-address: true  
     leaseRenewalIntervalInSeconds: 3
     leaseExpirationDurationInSeconds: 3  
-    ip-address: ${DOCKER_HOST_IP}
+    ip-address: 192.168.99.100
     metadataMap:
       instanceId: ${spring.application.name}:${server.port} 
   client:
@@ -23,6 +23,6 @@ eureka:
   server:
     waitTimeInMsWhenSyncEmpty: 5
   serviceUrl:
-     defaultZone: ${EUREKA_URI:http://${DOCKER_HOST_IP:8761/eureka}
+     defaultZone: ${EUREKA_URI:http://192.168.99.100:8761/eureka}
 
   
