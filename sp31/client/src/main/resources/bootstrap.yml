@@ -1,0 +1,25 @@
+management:
+  security:  
+   enabled: false  
+
+    
+server:
+    port: 5000
+    
+spring:
+  application:
+    name: client 
+    
+eureka:
+  instance:
+    prefer-ip-address: true  
+    leaseRenewalIntervalInSeconds: 10
+    ip-address: 192.168.99.100
+   
+  client:
+    enabled: true
+    registryFetchIntervalSeconds: 5
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://192.168.99.100:8761/eureka}

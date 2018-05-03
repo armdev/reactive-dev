@@ -1,0 +1,23 @@
+version: '3'
+services:  
+  eureka:
+    image: eureka
+    build: ./eureka
+    container_name: eureka
+    ports:
+      - '8761:8761'
+      - '8762:8762'
+      - '8763:8763'
+      - '8764:8764'
+      - '8765:8765'
+      - '8766:8766'
+      - '8767:8767'
+   # volumes:
+   #   - /opt/eureka/logs/:/opt/eureka/logs
+    networks:
+      - mpnet
+      
+networks:
+  mpnet:
+    driver: bridge
+
