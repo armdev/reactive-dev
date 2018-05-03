@@ -17,6 +17,21 @@ services:
     networks:
       - mpnet
       
+  client:
+    image: client
+    build: ./client
+    container_name: client
+    ports:
+      - '5000:5000'
+      - '5001:5001'
+      - '5002:5002'
+      - '5003:5003'
+      - '5004:5004'
+      - '5005:5005'
+        
+    networks:
+      - mpnet    
+      
 networks:
   mpnet:
     driver: bridge
