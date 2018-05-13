@@ -1,38 +1,22 @@
-version: '3'
+version: '3.1'
 services:  
   eureka:
     image: eureka
     build: ./eureka
     container_name: eureka
     ports:
-      - '8761:8761'
-      - '8762:8762'
-      - '8763:8763'
-      - '8764:8764'
-      - '8765:8765'
-      - '8766:8766'
-      - '8767:8767'
-   # volumes:
-   #   - /opt/eureka/logs/:/opt/eureka/logs
-    networks:
-      - mpnet
-      
+      - '8761'   
+
   client:
     image: client
     build: ./client
     container_name: client
     ports:
-      - '5000:5000'
-      - '5001:5001'
-      - '5002:5002'
-      - '5003:5003'
-      - '5004:5004'
-      - '5005:5005'
-        
-    networks:
-      - mpnet    
-      
-networks:
-  mpnet:
-    driver: bridge
+      - '5000'
+    deploy:
+      replicas: 4  
 
+
+#docker stack deploy -c stack.yml docker-compose.yml
+#docker stack deploy -c  docker-compose.yml deploy
+#https://github.com/anokun7/docker-springframework
