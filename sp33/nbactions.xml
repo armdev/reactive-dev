@@ -10,7 +10,7 @@
         </goals>
         <properties>
             <spring-boot.run.jvmArguments>-noverify -XX:TieredStopAtLevel=1 </spring-boot.run.jvmArguments>
-            <spring-boot.run.mainClass>io.project.app.30Application</spring-boot.run.mainClass>
+            <spring-boot.run.mainClass>io.project.app.Sp33Application</spring-boot.run.mainClass>
             <Env.SPRING_OUTPUT_ANSI_ENABLED>always</Env.SPRING_OUTPUT_ANSI_ENABLED>
         </properties>
     </action>
@@ -24,7 +24,7 @@
         </goals>
         <properties>
             <spring-boot.run.jvmArguments>-Xdebug -Xrunjdwp:transport=dt_socket,server=n,address=${jpda.address} -noverify -XX:TieredStopAtLevel=1 </spring-boot.run.jvmArguments>
-            <spring-boot.run.mainClass>io.project.app.30Application</spring-boot.run.mainClass>
+            <spring-boot.run.mainClass>io.project.app.Sp33Application</spring-boot.run.mainClass>
             <Env.SPRING_OUTPUT_ANSI_ENABLED>always</Env.SPRING_OUTPUT_ANSI_ENABLED>
             <jpda.listen>true</jpda.listen>
         </properties>
@@ -39,7 +39,7 @@
             <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
         </goals>
         <properties>
-            <exec.args>-classpath %classpath io.project.app.30Application</exec.args>
+            <exec.args>-classpath %classpath io.project.app.Sp33Application</exec.args>
             <exec.executable>java</exec.executable>
         </properties>
     </action>
