@@ -29,7 +29,7 @@ public class ReactiveController {
 
     @GetMapping("/user/second")
     public Mono<ResponseEntity<?>> load() {
-        return Mono.just(ResponseEntity.ok().body("Second users here"));
+        return Mono.just(ResponseEntity.ok().body("Second user here"));
     }
 
 }
