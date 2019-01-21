@@ -13,7 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebFlux;
 
 /**
  *
- * @author armena
+ * @author armenacd
  */
 @Configuration
 @EnableSwagger2WebFlux
