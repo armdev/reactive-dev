@@ -22,7 +22,7 @@ public class ReactiveController {
     @GetMapping
     @CrossOrigin
     public Mono<String> find(@RequestParam String name) {
-        log.info("1. We are loving coding in production mode!");
+        log.info("1. We are loving coding in production!");
         return Mono.just("Hello " + name + " I hope I am reactive application!!!!!");
     }
 
