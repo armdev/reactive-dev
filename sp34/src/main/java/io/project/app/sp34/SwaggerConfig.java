@@ -1,4 +1,4 @@
-package io.project.app;
+package io.project.app.sp34;
 
 import java.util.function.Predicate;
 import org.springframework.context.annotation.Bean;
@@ -21,7 +21,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Barev API")
+                .title("Reactive API")
                 .description("From Zero to Hello!")
                 .termsOfServiceUrl("http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?Open")
                 .contact(new Contact("Armen Arzumanyan", "http://github.com/armdev", "armen.arzumanyan@gmail.com"))
@@ -34,7 +34,7 @@ public class SwaggerConfig {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2).enable(true)
-                .groupName("superapi")
+                .groupName("Reactive API")
                 .apiInfo(apiInfo())
                 .select()
                 .paths(regex("/api.*"))
