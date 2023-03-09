@@ -10,14 +10,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
-import reactor.util.function.Tuple2;
 
 /**
  *
  * @author armdev
  */
 @RestController
-@RequestMapping(path = "/api/v1/news", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/api/v2/news")
 public class NewsController {
 
     @GetMapping(path = "/sse", produces = MediaType.TEXT_EVENT_STREAM_VALUE)

@@ -11,13 +11,12 @@ import reactor.core.publisher.Flux;
  * @author armdev
  */
 @RestController
-@RequestMapping(path = "/api/v1/users", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/api/v2/accounts")
 public class MainController {
-    
-    
-    @GetMapping(path = "/barev", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Flux<String> get() {              
+
+    @GetMapping(path = "/hello", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Flux<String> get() {
         return Flux.just("Aloha", "Hola", "Barev");
-    }   
-    
+    }
+
 }

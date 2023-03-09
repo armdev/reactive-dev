@@ -13,13 +13,13 @@ import reactor.core.publisher.Flux;
  * @author armdev
  */
 @RestController
-@RequestMapping(path = "/api/v1/users", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/api/v2/github", produces = MediaType.APPLICATION_JSON_VALUE)
 public class GithubController {
     
     @Autowired
     private GithubClient gitHubClient;
 
-    @GetMapping(path = "/repos", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/accounts/armdev/repos", produces = MediaType.APPLICATION_JSON_VALUE)
     public Flux<String> get() {              
         return gitHubClient.getRepositories();
     }   

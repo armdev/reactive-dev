@@ -17,7 +17,7 @@ public class GithubClient {
         WebClient client = WebClient.create("https://api.github.com/users");
         return client
                 .get()
-                .uri("/joshlong/repos")
+                .uri("/armdev/repos")
                 .exchange()
                 .flatMapMany(res -> res.bodyToFlux(String.class));
         //.log().toString();
