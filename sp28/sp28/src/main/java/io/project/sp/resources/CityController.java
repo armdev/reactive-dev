@@ -14,16 +14,15 @@ import reactor.core.publisher.Flux;
  * @author armdev
  */
 @RestController
-@RequestMapping(path = "/api/v1/cities", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/api/v1/cities")
 public class CityController {
-    
+
     @Autowired
     private CityRepository cityRepository;
-    
-    
+
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public Flux<City> get() {              
+    public Flux<City> get() {
         return cityRepository.findAll();
-    }   
-    
+    }
+
 }

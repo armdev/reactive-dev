@@ -1,8 +1,6 @@
 package io.project.sp.resources;
 
-import java.math.BigDecimal;
 import java.time.Duration;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -18,7 +16,7 @@ import reactor.core.publisher.Flux;
  * @author armdev
  */
 @RestController
-@RequestMapping(path = "/api/v1/data", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/api/v2/data")
 public class MainController {
 
     private final Random random = new Random();
@@ -32,7 +30,6 @@ public class MainController {
 
     public Flux<Double> fetchStream(Duration period) {
 
-      
         return Flux.interval(period)
                 // In case of back-pressure, drop events
                 .onBackpressureDrop()
@@ -42,7 +39,7 @@ public class MainController {
                 .log("Generating data");
     }
 
-    private List<Double> generateData(long interval) {    
+    private List<Double> generateData(long interval) {
 
         return prices.stream().map(b -> this.random.nextDouble()).collect(Collectors.toList());
 
