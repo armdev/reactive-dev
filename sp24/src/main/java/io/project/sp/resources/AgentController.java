@@ -13,7 +13,7 @@ import reactor.core.publisher.Flux;
  * @author armdev
  */
 @RestController
-@RequestMapping(path = "/api/v1/agents", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/api/v2/agents", produces = MediaType.APPLICATION_JSON_VALUE)
 public class AgentController {
     
     

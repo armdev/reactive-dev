@@ -9,7 +9,6 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableAutoConfiguration
-//@EnableReactiveMongoRepositories("io.project.mongo.repositories")
 @ComponentScan("io.project")
 public class Sp24Application {
    

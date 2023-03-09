@@ -1,6 +1,6 @@
 package io.project.sp.resources;
 
-import java.time.Duration;
+
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.http.MediaType;
@@ -15,13 +15,12 @@ import reactor.core.publisher.Mono;
  * @author armdev
  */
 @RestController
-@RequestMapping(path = "/api/v1/news", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/api/v2/news", produces = MediaType.APPLICATION_JSON_VALUE)
 public class NewsController {
-
-    private List<User> userList = new ArrayList<>();
 
     @GetMapping(path = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
     public Mono<List<User>> getUsers() {
+        List<User> userList = new ArrayList<>();
         User user = new User();
         user.setId("1");
         user.setUsername("aa");
@@ -36,7 +35,7 @@ public class NewsController {
         user.setPassword("1sssfdfd23456");
         userList.add(user);
 
-       return Flux.fromIterable(userList).collectList();
+        return Flux.fromIterable(userList).collectList();
     }
 
     @GetMapping(path = "/top", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -46,12 +45,12 @@ public class NewsController {
                 "Here’s why owning a bike-share service makes sense for Uber");
     }
 
-    @GetMapping("/latest")
+    @GetMapping(path = "/latest", produces = MediaType.APPLICATION_JSON_VALUE)
     public Mono<String> getLatestNews() {
         return Mono.just("The latest international news from Sky, featuring top stories from around the world and breaking news, as it happens.");
     }
 
-    @GetMapping("/local")
+    @GetMapping(path = "/local", produces = MediaType.APPLICATION_JSON_VALUE)
     public Mono<String> getLocalNews() {
         return Mono.just("Real Madrid back among Champions League favourites - Marca");
     }
